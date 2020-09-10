@@ -18,16 +18,16 @@ function App() {
   }, []);
   console.log(nasaData);
 
-  const [infoData, setInfoData] = useState(true);
-  const toggle = () => {
-    if (infoData === false) {
-      const btnInfo = document.getElementById("explanation");
-      btnInfo.style.display = "none";
-    } else {
-      const btnInfo = document.getElementById("explanation");
-      btnInfo.style.display = "block";
-    }
-  };
+  const [infoData, setInfoData] = useState(false);
+  // const toggle = () => {
+  //   if (infoData === false) {
+  //     const btnInfo = document.getElementById("explanation");
+  //     btnInfo.style.display = "none";
+  //   } else {
+  //     const btnInfo = document.getElementById("explanation");
+  //     btnInfo.style.display = "block";
+  //   }
+  // };
 
   // const btnInfo = document.getElementById.("#explanation");
   // btnInfo.addEventListener.onload("click", function (event) {
@@ -57,13 +57,10 @@ function App() {
       </div>
       <div className="information container">
         <h4>Photo Information Below</h4>
-        <button
-          className="button"
-          onClick={() => <h4>{nasaData.explanation}</h4>}
-        >
+        <button className="button" onClick={() => setInfoData(!infoData)}>
           Click for photo information
+          {infoData && <h4>{nasaData.explanation}</h4>}
         </button>
-        <h4 id="explanation">{nasaData.explanation}</h4>
       </div>
     </div>
   );
